@@ -1,29 +1,21 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import useFontFamily from "./src/hooks/useFontFamily";
+import { StatusBar } from 'expo-status-bar';
+import Routes from './src/routes';
+
+import ThemeProvider from '@components/ThemeProvider';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>
-        Open up App.js to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar backgroundColor="#6495ED" barStyle="light-content" />
+
+      <ThemeProvider>
+        <NavigationContainer>
+          <Routes />
+        </NavigationContainer>
+      </ThemeProvider>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 25,
-    fontFamily: useFontFamily(700),
-  },
-});
