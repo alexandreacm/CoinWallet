@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "CoinWallet",
+    "slug": "CoinWallet",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
