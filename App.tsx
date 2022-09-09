@@ -4,14 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import Routes from './src/routes';
 
+import theme from './src/theme';
+
 import ThemeProvider from '@components/ThemeProvider';
 
 export default function App() {
   return (
     <>
-      <StatusBar backgroundColor="#6495ED" barStyle="light-content" />
+      <StatusBar style="inverted" backgroundColor={theme.COLORS.PRIMARY_COLOR} />
 
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
         <NavigationContainer>
           <Routes />
         </NavigationContainer>

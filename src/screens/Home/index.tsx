@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
 
-import { Container } from './styles';
+import { Container, ContainerBody, Title } from './styles';
 
 export function Home() {
   return (
     <Container>
-      <Text>Home screen</Text>
+      <ContainerBody>
+        <Title>Title</Title>
+      </ContainerBody>
     </Container>
   );
 }

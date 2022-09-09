@@ -4,11 +4,19 @@ import { Platform } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Entypo, Ionicons } from '@expo/vector-icons';
+import { Entypo, Ionicons, FontAwesome } from '@expo/vector-icons';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
+import { MaterialTopTab } from '../tabs/MaterialTopTab';
+
 import { Home } from '@screens/Home';
+import { Wallet } from '@screens/Wallet';
+import { QrCode } from '@screens/QrCode';
+import { History } from '@screens/History';
+import { Transfer } from '@screens/Transfer';
+
+import { CustomTabButton } from '@components/CustomTabButton';
 
 export function BottomTab() {
   const COLORS = useTheme();
@@ -16,6 +24,7 @@ export function BottomTab() {
   return (
     <Navigator
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: COLORS.PRIMARY_COLOR,
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
@@ -25,30 +34,38 @@ export function BottomTab() {
     >
       <Screen
         name="Home"
-        component={Home}
+        component={MaterialTopTab}
         options={{
           tabBarIcon: ({ focused, color }) => <Entypo name="home" size={25} color={color} />,
         }}
       />
       <Screen
         name="Wallet"
-        component={Home}
+        component={Wallet}
         options={{
           tabBarIcon: ({ focused, color }) => <Entypo name="wallet" size={25} color={color} />,
         }}
       />
       <Screen
+        name="QrCode"
+        component={QrCode}
+        options={{
+          title: '',
+          tabBarIcon: () => <CustomTabButton />,
+        }}
+      />
+      <Screen
         name="History"
-        component={Home}
+        component={History}
         options={{
           tabBarIcon: ({ focused, color }) => <Ionicons name="timer" size={25} color={color} />,
         }}
       />
       <Screen
-        name="Discounts"
-        component={Home}
+        name="Tranfer"
+        component={Transfer}
         options={{
-          tabBarIcon: ({ focused, color }) => <Entypo name="compass" size={25} color={color} />,
+          tabBarIcon: ({ focused, color }) => <FontAwesome name="money" size={25} color={color} />,
         }}
       />
     </Navigator>

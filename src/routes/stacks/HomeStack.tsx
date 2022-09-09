@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
-import welCome from '../../screens/WelCome';
+import WelCome from '../../screens/WelCome';
 import SignIn from '../../screens/SignIn';
 import { BottomTab } from '../tabs/BottomTab';
 
@@ -15,7 +15,7 @@ function HomeStack() {
         headerShown: false,
       }}
     >
-      <Screen name="welCome" component={welCome} />
+      <Screen name="WelCome" component={WelCome} />
       <Screen name="SignIn" component={SignIn} />
       <Screen name="Home" component={BottomTab} />
     </Navigator>
