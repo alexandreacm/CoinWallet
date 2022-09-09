@@ -1,40 +1,32 @@
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import * as Animatable from "react-native-animatable";
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
-import icLogo from "../../assets/images/logo.jpg";
-import { styles } from "./styles";
+import icLogo from '../../assets/images/logo.png';
+import { styles } from './styles';
 
 export default function WelCome() {
   const { navigate } = useNavigation();
 
   function onHandleNavigate() {
-    navigate("signin");
+    navigate('SignIn');
   }
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
-        <Animatable.Image
-          animation="flipInY"
-          source={icLogo}
-          resizeMode="contain"
-        />
+        <Animatable.Image animation="fadeInDown" source={icLogo} resizeMode="contain" />
       </View>
 
-      <Animatable.View
-        delay={600}
-        animation="fadeInUp"
-        style={styles.containerForm}
-      >
+      <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
         <Text style={styles.title}>
-          Monitore, Organize seus gastos de qualquer lugar
+          CoinWallet is official Bitcoin wallet where you can monitory prices of BTC
         </Text>
-        <Text style={styles.subTitle}>Faça o login para começar</Text>
+        <Text style={styles.subTitle}>Login to start</Text>
 
         <TouchableOpacity style={styles.button} onPress={onHandleNavigate}>
-          <Text style={styles.buttonText}>Acessar</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </Animatable.View>
     </View>
