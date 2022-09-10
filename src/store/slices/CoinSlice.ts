@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-type CoinData = {
-  id: string;
-  symbol: string;
-  name: string;
-  rank: number;
-  price_usd: number;
-  percent_change_24h: number;
-};
+import { CoinData } from '@screens/Coins';
 
 type Props = {
   coinsData: CoinData[];
@@ -15,6 +7,7 @@ type Props = {
   hasError: boolean;
   errorMessage: string;
 };
+
 const initialState: Props = {
   coinsData: [],
   isLoading: false,

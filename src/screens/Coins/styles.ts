@@ -51,6 +51,94 @@ export const StyledEmptyListView = styled.View`
 
 export const StyledEmptyListText = styled.Text`
   font-size: 16px;
-  color: #fff;
+  color: #000;
   font-family: ${useFontFamily(500)};
+`;
+
+export const LeftSide = styled.View`
+  width: 70px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const RightSide = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-bottom-width: 1px;
+  border-bottom-color: #cdcdcd;
+`;
+
+export const ViewIcon = styled.View`
+  width: 75px;
+  height: 75px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ImgIcon = styled.Image`
+  width: 50px;
+  height: 50px;
+`;
+
+export const CardContainer = styled.TouchableOpacity`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 3px;
+`;
+
+export const Name = styled.Text`
+  width: 40%;
+  font-size: 14px;
+  text-align: left;
+  font-family: ${useFontFamily(500)};
+`;
+
+export const Price = styled.Text`
+  width: 60%;
+  font-size: 14px;
+  text-align: right;
+  padding-right: 30px;
+  font-family: ${useFontFamily(500)};
+`;
+
+export const Percent = styled.Text`
+  width: 100px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+  font-family: ${useFontFamily(100)};
+`;
+
+export const PriceUsd = styled.Text`
+  width: 30%;
+  font-size: 14px;
+  text-align: left;
+  padding-right: 30px;
+  color: #808080;
+  font-family: ${useFontFamily(500)};
+`;
+
+export const RightSideViewHeader = styled.View`
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const RightSideViewBottom = styled.View`
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const PercentChange24h = styled.Text`
+  width: 70%;
+  font-size: 14px;
+  text-align: left;
+  color: green;
+  font-family: ${useFontFamily(400)};
 `;

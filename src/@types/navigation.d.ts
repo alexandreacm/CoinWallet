@@ -4,6 +4,7 @@ export declare global {
       WelCome: undefined;
       SignIn: undefined;
       Home: undefined;
+      HomeLogged: undefined;
     }
   }
 }

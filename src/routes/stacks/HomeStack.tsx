@@ -17,7 +17,7 @@ function HomeStack() {
     >
       <Screen name="WelCome" component={WelCome} />
       <Screen name="SignIn" component={SignIn} />
-      <Screen name="Home" component={BottomTab} />
+      <Screen name="HomeLogged" component={BottomTab} />
     </Navigator>
   );
 }

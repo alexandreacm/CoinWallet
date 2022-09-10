@@ -11,7 +11,7 @@ import icLTC from '@assets/icons/ltc.png';
 import icLINK from '@assets/icons/link.png';
 import icDOGE from '@assets/icons/doge.png';
 
-export const coinImages = {
+export const coinImage = {
   BTC: icBitCoin,
   ETH: icETH,
   BNB: icBNB,
@@ -46,5 +46,7 @@ export function formatMoney(value: number) {
   return value.toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD',
+    maximumFractionDigits: 4,
+    maximumSignificantDigits: 4,
   });
 }

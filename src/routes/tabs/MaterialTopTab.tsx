@@ -3,6 +3,7 @@ import { Ionicons, Feather, Entypo } from '@expo/vector-icons';
 
 import { Coins } from '@screens/Coins';
 import { History } from '@screens/History';
+import { AuthProps } from '@screens/SignIn';
 
 const { Navigator, Screen } = createMaterialTopTabNavigator();
 
@@ -12,28 +13,49 @@ import {
   AvailableBalanceTitle,
   ContainerVerticalButtons,
   RoundButton,
+  ButtonTitle,
+  ContainerVerticalTextButtons,
 } from './styles';
+import { useAuthContext } from '@contexts/AuthProvider';
 
 export function MaterialTopTab() {
+  const { user } = useAuthContext();
+
   return (
     <>
       <ContainerHeader>
-        <AvailableBalance>$5.430</AvailableBalance>
+        <AvailableBalance>$0.00</AvailableBalance>
+        <AvailableBalanceTitle>{user?.email}</AvailableBalanceTitle>
         <AvailableBalanceTitle>My Wallet</AvailableBalanceTitle>
 
         <ContainerVerticalButtons>
-          <RoundButton>
-            <Ionicons name="arrow-up" size={25} color="#FFF" />
-          </RoundButton>
-          <RoundButton>
-            <Ionicons name="arrow-down" size={25} color="#FFF" />
-          </RoundButton>
-          <RoundButton>
-            <Feather name="tag" size={25} color="#FFF" />
-          </RoundButton>
-          <RoundButton>
-            <Entypo name="share" size={25} color="#FFF" />
-          </RoundButton>
+          <ContainerVerticalTextButtons>
+            <RoundButton>
+              <Ionicons name="arrow-up" size={25} color="#FFF" />
+            </RoundButton>
+            <ButtonTitle>Send</ButtonTitle>
+          </ContainerVerticalTextButtons>
+
+          <ContainerVerticalTextButtons>
+            <RoundButton>
+              <Ionicons name="arrow-down" size={25} color="#FFF" />
+            </RoundButton>
+            <ButtonTitle>Receive</ButtonTitle>
+          </ContainerVerticalTextButtons>
+
+          <ContainerVerticalTextButtons>
+            <RoundButton>
+              <Feather name="tag" size={25} color="#FFF" />
+            </RoundButton>
+            <ButtonTitle>Buy</ButtonTitle>
+          </ContainerVerticalTextButtons>
+
+          <ContainerVerticalTextButtons>
+            <RoundButton>
+              <Entypo name="share" size={25} color="#FFF" />
+            </RoundButton>
+            <ButtonTitle>Trade</ButtonTitle>
+          </ContainerVerticalTextButtons>
         </ContainerVerticalButtons>
       </ContainerHeader>
 
@@ -46,7 +68,7 @@ export function MaterialTopTab() {
           },
         }}
       >
-        <Screen name="BTC" component={Coins} />
+        <Screen name="Coins" component={Coins} />
         <Screen name="History" component={History} />
       </Navigator>
     </>

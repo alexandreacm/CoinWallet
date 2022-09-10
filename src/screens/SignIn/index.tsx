@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 import * as Animatable from 'react-native-animatable';
 
 import { styles } from './styles';
+import { useAuthContext } from '@contexts/AuthProvider';
 
-export default function SignIn() {
-  const { navigate } = useNavigation();
+export type AuthProps = {
+  email: string;
+  status: boolean;
+  logged: boolean;
+};
+
+type Props = {
+  signIn: (email: string, password: string) => void;
+  user: AuthProps;
+};
+
+export function SignIn({ signIn, user }: Props) {
+  const [email, setEmail] = useState<string>('alex@gmail.com');
+  const [password, setPassword] = useState<string>('');
+
+  function handleOnLogin() {
+    signIn(email, password);
+  }
 
   return (
     <View style={styles.container}>
@@ -17,12 +33,18 @@ export default function SignIn() {
 
       <Animatable.View style={styles.containerForm} animation="fadeInDown">
         <Text style={styles.title}>Email</Text>
-        <TextInput style={styles.input} placeholder="email" />
+        <TextInput style={styles.input} placeholder="email" value={email} onChangeText={setEmail} />
 
         <Text style={styles.title}>Password</Text>
-        <TextInput style={styles.input} placeholder="password" />
+        <TextInput
+          style={styles.input}
+          placeholder="password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
 
-        <TouchableOpacity onPress={() => navigate('Home')} style={styles.button}>
+        <TouchableOpacity onPress={handleOnLogin} style={styles.button}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
@@ -32,4 +54,10 @@ export default function SignIn() {
       </Animatable.View>
     </View>
   );
+}
+
+export default function (props: any) {
+  const { signIn, user } = useAuthContext();
+
+  return <SignIn signIn={signIn} user={user} {...props} />;
 }

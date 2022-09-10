@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { BottomTab } from './tabs/BottomTab';
+import HomeStack from './stacks/HomeStack';
 
 export default function Routes() {
-  return <BottomTab />;
+  return <HomeStack />;
 }

@@ -3,7 +3,7 @@ import useFontFamily from '@hooks/useFontFamily';
 
 export const ContainerHeader = styled.View`
   width: 100%;
-  height: 266px;
+  height: 330px;
   background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
   justify-content: center;
   align-items: center;
@@ -36,19 +36,34 @@ export const AvailableBalanceTitle = styled.Text`
 
 export const ContainerVerticalButtons = styled.View`
   width: 100%;
-  height: 55px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 15px;
+  padding: 8px;
+  top: 12px;
+`;
+
+export const ContainerVerticalTextButtons = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
 `;
 
 export const RoundButton = styled.TouchableOpacity`
   width: 60px;
-  height: 60px;
+  padding: 18px;
   border-radius: 50px;
   background-color: rgba(135, 206, 250, 0.5);
   justify-content: center;
   align-items: center;
-  margin-left: 5px;
+`;
+
+export const ButtonTitle = styled.Text`
+  width: 100%;
+  font-size: 14px;
+  color: #f3f3f3;
+  font-family: ${useFontFamily(500)};
+  text-align: center;
+  margin-top: 5px;
 `;

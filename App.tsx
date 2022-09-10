@@ -9,6 +9,7 @@ import theme from './src/theme';
 
 import ThemeProvider from '@components/ThemeProvider';
 import store from './src/store/';
+import AuthProvider from '@contexts/AuthProvider';
 
 export default function App() {
   return (
@@ -17,7 +18,9 @@ export default function App() {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <NavigationContainer>
-            <Routes />
+            <AuthProvider>
+              <Routes />
+            </AuthProvider>
           </NavigationContainer>
         </ThemeProvider>
       </Provider>
