@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 import { useSelector, useDispatch } from 'react-redux';
 
 import { LOADING_COINS } from '@store/slices/CoinSlice';
@@ -28,7 +30,6 @@ import Loading from '@components/Loading';
 import empty from '@assets/animations/empty-list';
 import icDefault from '@assets/icons/default.png';
 import { coinImage, formatMoney } from '@helpers/functions/utils/';
-import { useAuthContext } from '@contexts/AuthProvider';
 
 export type CoinData = {
   id: string;
@@ -42,10 +43,11 @@ export type CoinData = {
 
 export function Coins() {
   const dispatch = useDispatch();
-  const { isLoading, coinsData } = useSelector(({ coins }) => coins);
+  const { isLoading, listCoinsData } = useSelector(({ coins }) => coins);
+  const { navigate } = useNavigation();
 
   function renderEmptyList() {
-    if (isLoading && !coinsData.length) return;
+    if (isLoading && !listCoinsData.length) return;
 
     return (
       <>
@@ -61,7 +63,7 @@ export function Coins() {
 
   function renderItem({ item }: CoinData) {
     return (
-      <CardContainer activeOpacity={0.8}>
+      <CardContainer activeOpacity={0.8} onPress={() => navigate('DetailCoin', { id: item?.id })}>
         <LeftSide>
           <ViewIcon>
             <ImgIcon source={coinImage[item?.symbol] || icDefault} resizeMode="contain" />
@@ -93,7 +95,7 @@ export function Coins() {
         <Loading />
       ) : (
         <FlatList
-          data={coinsData}
+          data={listCoinsData}
           keyExtractor={(item: any) => item.id}
           ListEmptyComponent={renderEmptyList}
           renderItem={renderItem}

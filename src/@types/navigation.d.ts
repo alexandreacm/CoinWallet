@@ -5,6 +5,9 @@ export declare global {
       SignIn: undefined;
       Home: undefined;
       HomeLogged: undefined;
+      Wallet: undefined;
+      DetailCoin: undefined;
+      Transfer: undefined;
     }
   }
 }
