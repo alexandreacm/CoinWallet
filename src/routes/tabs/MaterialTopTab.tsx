@@ -1,9 +1,11 @@
+import React, { useEffect, useState } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Ionicons, Feather, Entypo } from '@expo/vector-icons';
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 
 import { Coins } from '@screens/Coins';
 import { History } from '@screens/History';
-import { AuthProps } from '@screens/SignIn';
+// import { AuthProps } from '@screens/SignIn';
 
 const { Navigator, Screen } = createMaterialTopTabNavigator();
 
@@ -16,16 +18,28 @@ import {
   ButtonTitle,
   ContainerVerticalTextButtons,
 } from './styles';
-import { useAuthContext } from '@contexts/AuthProvider';
+// import { useAuthContext } from '@contexts/AuthProvider';
+import { saveUser } from '../../../src/constants/storage';
 
 export function MaterialTopTab() {
-  const { user } = useAuthContext();
+  const { getItem } = useAsyncStorage(saveUser);
+  const [user, setUser] = useState<string>('');
+
+  async function loadDataUser() {
+    const response = await getItem();
+    // console.log('loadDataUser-response: ', response);
+
+    response ? setUser(response) : '';
+  }
+  useEffect(() => {
+    loadDataUser();
+  }, []);
 
   return (
     <>
       <ContainerHeader>
         <AvailableBalance>$0.00</AvailableBalance>
-        <AvailableBalanceTitle>{user?.email}</AvailableBalanceTitle>
+        <AvailableBalanceTitle>{user}</AvailableBalanceTitle>
         <AvailableBalanceTitle>My Wallet</AvailableBalanceTitle>
 
         <ContainerVerticalButtons>
