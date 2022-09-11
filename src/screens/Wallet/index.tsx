@@ -19,7 +19,7 @@ export function Wallet() {
   } = useRoute();
 
   useEffect(() => {
-    dispatch(FINDING_COIN());
+    dispatch(FINDING_COIN({ id }));
   }, []);
 
   return (

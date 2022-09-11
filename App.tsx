@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import Routes from './src/routes';
 
 import theme from './src/theme';
@@ -14,7 +14,6 @@ import AuthProvider from '@contexts/AuthProvider';
 export default function App() {
   return (
     <>
-      <StatusBar style="inverted" backgroundColor={theme.COLORS.PRIMARY_COLOR} />
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <NavigationContainer>

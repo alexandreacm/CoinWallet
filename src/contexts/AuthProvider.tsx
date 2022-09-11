@@ -15,7 +15,7 @@ function AuthProvider({ children }: any) {
   const { navigate } = useNavigation();
 
   async function signIn(email: string, password: string) {
-    console.log(`Email: ${email} / Pass: ${password}`);
+    // console.log(`Email: ${email} / Pass: ${password}`);
 
     if (email === '' && password === '') return;
 
@@ -27,7 +27,7 @@ function AuthProvider({ children }: any) {
       });
 
       await setItem(email);
-      navigate('HomeLogged');
+      navigate('Home1');
     }
   }
 

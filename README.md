@@ -23,17 +23,22 @@ To styling issues, I used styled-components as the main library.
 
 ## Features
 
-- [ ] Login
+- [ ] Login / Local sotrage
 - [ ] Filterable list of cryptocurrencies
+- [ ] see graphic balance
 
 ## ✨ Technologies
 
 - [ ] React Native CLI
-- [ ] Vector Icons
+- [ ] Victory Native
+- [ ] Expo Vector Icons
 - [ ] React Navigation V6
 - [ ] Redux
 - [ ] Redux-Saga
 - [ ] @Reduxjs/toolkit
+- [ ] @react-native-async-storage
+- [ ] Jest
+- [ ] Husky / Lint-d
 
 ## Running the project
 

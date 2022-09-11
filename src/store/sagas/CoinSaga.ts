@@ -21,13 +21,13 @@ function* LoadingCoins() {
   }
 }
 
-function* FindingCoin() {
+function* FindingCoin({ payload: { id } }) {
   try {
-    const response = yield call(fetch, `https://api.coinlore.net/api/ticker/?id=${90}`);
+    const response = yield call(fetch, `https://api.coinlore.net/api/ticker/?id=${id}`);
 
-    const coin = yield response.json();
+    const coinData = yield response.json();
 
-    yield put(FIND_COINS_SUCCESS({ coinData: coin }));
+    yield put(FIND_COINS_SUCCESS({ coinData }));
   } catch (error: any) {
     yield put(FIND_COINS_FAILURE({ errorMessage: error.response.data.message }));
   }

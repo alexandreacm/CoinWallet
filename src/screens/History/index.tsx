@@ -5,7 +5,7 @@ import { Container, Title } from './styles';
 export function History() {
   return (
     <Container>
-      <Title>History</Title>
+      <Title>Here I can implement others screens</Title>
     </Container>
   );
 }

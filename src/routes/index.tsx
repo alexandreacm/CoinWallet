@@ -3,14 +3,13 @@ import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 
 import HomeStack from './stacks/HomeStack';
 import AuthStack from './stacks/AuthStack';
-import { BottomTab } from './tabs/BottomTab';
 
 import { saveUser } from '../../src/constants/storage';
 // import { useFocusEffect } from '@react-navigation/native';
 // import { AuthProps } from '@screens/SignIn';
 
 export default function Routes() {
-  const { getItem } = useAsyncStorage(saveUser);
+  const { getItem, removeItem } = useAsyncStorage(saveUser);
   // const [user, setUser] = useState<AuthProps>({} as AuthProps);
   const [user, setUser] = useState<string | null>('');
 
@@ -23,6 +22,7 @@ export default function Routes() {
   }
 
   useEffect(() => {
+    // removeItem();
     loadData();
   }, []);
 
