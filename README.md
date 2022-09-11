@@ -45,7 +45,7 @@ To styling issues, I used styled-components as the main library.
 Use **yarn** or **npm install** to install project dependencies. Then start the project.
 
 ```cl
-yarn android or react-native run android/ios
+yarn android/ios or npx expo run:ios/android
 ```
 
 ## Running the tests
