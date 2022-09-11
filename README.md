@@ -25,7 +25,7 @@ To styling issues, I used styled-components as the main library.
 
 - [ ] Login / Local sotrage
 - [ ] Filterable list of cryptocurrencies
-- [ ] see graphic balance
+- [ ] see currency balance in chart
 
 ## ✨ Technologies
 
@@ -38,7 +38,7 @@ To styling issues, I used styled-components as the main library.
 - [ ] @Reduxjs/toolkit
 - [ ] @react-native-async-storage
 - [ ] Jest
-- [ ] Husky / Lint-d
+- [ ] Husky / Lint-Staged
 
 ## Running the project
 
@@ -83,5 +83,5 @@ yarn jest or yarn test
 </p>
 
 <div align="center">
-  <small>Development for Alexandre carvalho marques - 2022/jan</small>
+  <small>Development for Alexandre carvalho marques - 2022/set</small>
 </div>

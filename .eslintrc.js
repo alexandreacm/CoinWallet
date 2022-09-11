@@ -1,32 +1,27 @@
 module.exports = {
   env: {
-    es6: true,
+    es2021: true,
     node: true,
     jest: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  plugins: ['react', 'react-native', 'prettier', 'react-hooks', '@typescript-eslint'],
   rules: {
-    indent: ['error', 2, { SwitchCase: 1 }],
-    quotes: ['error', 'single', { avoidEscape: true }],
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'import/prefer-default-export': 'off',
+    'no-param-reassign': 'off',
+    'no-console': ['error', { allow: ['tron'] }],
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    'react/display-name': 'off',
-    'react/prop-types': 'off',
-  },
-  settings: {
-    react: {
-      version: 'detect',
-    },
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['**/*.test.ts', '**/*.spec.ts'] },
+    ],
+    'import/extensions': ['error', 'never', { ignorePackages: true }],
   },
 };
