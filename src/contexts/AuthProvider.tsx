@@ -9,7 +9,7 @@ const AuthContext = createContext({});
 export const useAuthContext = () => useContext(AuthContext);
 
 function AuthProvider({ children }: any) {
-  const { getItem, setItem } = useAsyncStorage(saveUser);
+  const { setItem } = useAsyncStorage(saveUser);
 
   const [user, setUser] = useState<AuthProps>({} as AuthProps);
   const { navigate } = useNavigation();
