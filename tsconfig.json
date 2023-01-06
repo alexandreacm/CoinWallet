@@ -18,30 +18,14 @@
     "target": "esnext",
     "baseUrl": "./",
     "paths": {
-      "@screens/*": [
-        "./src/screens/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@store/*": [
-        "./src/store/*"
-      ],
-      "@helpers/*": [
-        "./src/helpers/*"
-      ],
-      "@contexts/*": [
-        "./src/contexts/*"
-      ]
+      "@screens/*": ["./src/screens/*"],
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@store/*": ["./src/store/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@contexts/*": ["./src/contexts/*"]
     }
   },
   "exclude": [
